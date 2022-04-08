@@ -43,6 +43,63 @@ const Statics = () => {
           
         </div>
       </div>
+
+
+      <div className="wallet-container">
+        <div className="info-strip">
+          <img width="24" height="24" src="/static/frontend/img/wallet.svg" />
+          <div className="wallet-ttl">My wallet</div>
+          <div className="txt loading harvest-amount">
+            <div className="swamp-amount">0.00</div>
+            <div className="swamp-value">$(0.00)</div>
+          </div>
+          <div className="btn primary harvest-all disabled alt">Harvest All</div>
+        </div>
+
+        <div className="seperator"></div>
+
+        <div className="bottom-container">
+          <div className="box">
+            <div className="head">
+              <div className="ttl">Deposits in Vaults</div>
+              <div className="deposit-container">
+                <div className="ttl">My total deposit:</div>
+                <div className="value">$0.00</div>
+              </div>
+            </div>
+
+            <div className="list-container deposit-vaults no-deposits">
+              <div className="scroll-container">
+                <div className="itm template" data-symbols-url="/static/frontend/img/symbols/" data-symbols-custom-url="/static/frontend/img/symbols/custom/">
+                  <div className="symbols">
+                    <img src="/static/frontend/img/symbols/swamp.svg" />
+                    <img src="/static/frontend/img/symbols/swamp.svg" />
+                  </div>
+                  <div className="values">
+                    <div className="ttl">Swamp</div>
+                    <div className="amount">0 <span className="estimate">($0.00)</span></div>
+                  </div>
+                </div>
+                <a className="btn secondary deposit" href="/app/">Deposit to Vaults</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="box">
+            <div className="head">
+              <div className="ttl">Top 3 Earning Vaults</div>
+                <div className="deposit-container">
+                  <div className="ttl">(Yearly)</div>
+                </div>
+              </div>
+              <div className="list-container">
+            </div>
+          </div>
+        
+        </div>
+      </div>
+
+
     </StaticsContainer>
   );
 };

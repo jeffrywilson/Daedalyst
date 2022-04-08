@@ -121,4 +121,174 @@ export const StaticsContainer = styled.div`
       padding: 30px;
     }
   }
+
+  .wallet-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    border-radius: var(--r-border-3);
+    background-color: var(--c-background-4);
+    margin: 20px 0;
+    height: 516px;
+    padding: 30px;
+    .info-strip {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 20px;
+      .wallet-ttl {
+        font-size: 20px;
+        margin-left: 20px;
+      }
+      .harvest-amount {
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        .swamp-amount {
+          position: relative;
+          color: var(--c-primary);
+          font-size: 18px;
+          &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 35px;
+            height: 35px;
+            background: url(../img/symbols/swamp.svg) no-repeat;
+            left: -45px;
+            top: -3px;
+          }
+          &::after {
+            content: 'SWAMP';
+            position: absolute;
+            display: block;
+            font-size: 18px;
+            color: var(--c-primary);
+            right: 0;
+            top: 0;
+          }
+        }
+        .swamp-value {
+          font-size: 18px;
+          color: var(--c-txt-2);
+          margin-left: 5px;
+        }
+        &.loading .swamp-amount .swamp-value {
+          visibility: hidden;
+        }
+      }
+      .txt.loading {
+        width: 30px;
+        height: fit-content;
+        &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          width: 16px;
+          height: 16px;
+          border: 3px solid var(--c-background-3);
+          border-top: 3px solid var(--c-primary);
+          border-radius: 50%;
+          animation: rotate 1s linear infinite;
+          left: calc(50% - 10px);
+          top: 2px;
+        }
+      }
+
+      .btn.harvest-all {
+        width: 240px;
+        margin-left: 20px;
+      }
+    }
+    .seperator {
+      width: 100%;
+      height: 2px;
+      margin: 30px 0;
+      background-color: var(--c-background-3);
+    }
+    .bottom-container {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      .box {
+        display: flex;
+        width: calc(50% - 20px);
+        flex-direction: column;
+        .head {
+          display: flex;
+          flex-direction: row;
+          font-size: 18px;
+          .deposit-container {
+            display: flex;
+            flex-direction: row;
+            margin-left: auto;
+            align-items: center;
+            .ttl {
+              font-size: 16px;
+              color: var(--c-txt-2);
+              margin-right: 10px;
+            }
+          }
+        }
+
+        .list-container {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          max-height: 290px;
+          overflow-y: auto;
+          margin-top: 30px;
+          .scroll-container {
+            display: flex;
+            flex-direction: column;
+            .itm {
+              display: flex;
+              width: 100%;
+              height: 90px;
+              background-color: var(--c-background-3);
+              border-radius: var(--r-border-3);
+              padding: 0 30px;
+              align-items: center;
+              font-size: 18px;
+              &.template{
+                display: none;
+              }
+              .symbols {
+                display: flex;
+                flex-direction: row;
+                img {
+                  width: 40px;
+                  height: 40px;
+                }
+              }
+              .vaules {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                margin-left: 20px;
+                .amount {
+                  margin-left: auto;
+                  color: var(--c-txt);
+                  .estimate {
+                    color: var(--c-txt-2);
+                  }
+                }
+              }
+            }
+
+            .btn.deposit {
+              position: relative;
+              margin: 20px auto 0;
+              width: 200px;
+            }
+          }
+        }
+      }
+
+      .box:nth-of-type(2) {
+        margin-left: 40px;
+      }
+    }
+  }
 `;

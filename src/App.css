@@ -109,3 +109,19 @@ a.btn, div.btn {
   text-align: center;
   line-height: 50px;
 }
+
+.txt {
+  position: relative;
+  font-size: 16px;
+}
+
+a.btn.disabled.alt, div.btn.disabled.alt {
+  background-color: var(--c-background-2);
+}
+
+a.btn.disabled, div.btn.disabled {
+  background-color: var(--c-background-3);
+  cursor: not-allowed;
+  color: var(--c-txt-2);
+  box-shadow: none;
+}
