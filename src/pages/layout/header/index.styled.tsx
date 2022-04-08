@@ -104,6 +104,21 @@ export const HeaderContainer = styled.div`
           top: 9px;
         }
       }
+      .balance {
+        display: flex;
+        position: relative;
+        width: fit-content;
+        background-color: var(--c-txt-2);
+        color: var(--c-txt);
+        border-radius: var(--r-border);
+        padding: 0 0 0 20px;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+      }
+      .balance.hidden {
+        display: none;
+      }
     }
 
     .hamburger {

@@ -81,4 +81,41 @@ export const StaticsContainer = styled.div`
       }
     }
   }
+
+  .farm-stats-container {
+    display: flex;
+    height: 378px;
+    flex-direction: row;
+    margin-top: 50px;
+    .farm-stats {
+      display: flex;
+      min-width: 360px;
+      flex-direction: column;
+      .stat {
+        position: relative;
+        padding: 25px 30px;
+        border: var(--c-txt-2) 2px solid;
+        border-radius: var(--r-border-3);
+        .ttl {
+          color: var(--c-txt-2);
+          font-size: 15px;
+        }
+        .val {
+          position: relative;
+          top: 3px;
+          color: var(--c-txt);
+          font-size: 24px;
+        }
+      }
+    }
+    .chart-container {
+      display: flex;
+      width: 820px;
+      flex-direction: column;
+      border-radius: var(--r-border-3);
+      background-color: var(--c-background-3);
+      margin-left: 20px;
+      padding: 30px;
+    }
+  }
 `;

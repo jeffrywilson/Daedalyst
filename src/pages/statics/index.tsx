@@ -22,7 +22,27 @@ const Statics = () => {
             </div>
         </div>
         <div className="btn primary buy-swamp">Buy SWAMP</div>
-    </div>
+      </div>
+
+      <div className="farm-stats-container">
+        <div className="farm-stats">
+          <div className="stat tvl">
+            <div className="ttl">Total Value Locked (TVL)</div>
+            <div className="val">$2,854,549</div>
+          </div>
+          <div className="stat tvl">
+            <div className="ttl">Total Liquidity</div>
+            <div className="val">$4,898</div>
+          </div>
+          <div className="stat tvl">
+            <div className="ttl">Trading Volume (24h)</div>
+            <div className="val">$0</div>
+          </div>
+        </div>
+        <div className="chart-container">
+          
+        </div>
+      </div>
     </StaticsContainer>
   );
 };
