@@ -1,90 +1,84 @@
 import styled from "styled-components";
-export const FAQContainer = styled.div`
-  padding: 3.5rem 1.5rem 1.5rem 1.5rem;
-`;
-export const KeyInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 15%;
-`;
-export const KeyInfoTitle = styled.h1`
-    color: #04396c;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    /* font-family: Chivo; */
-    font-weight: 900;
-    font-size: 48px;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-}
-`;
-export const KeyInfoContent = styled.ul`
-  font-size: 20px;
-  color: #212529;
-  font-family: "Space Mono";
-  span {
-    font-weight: 700;
-    color: #e91e63;
+
+export const StaticsContainer = styled.div`
+  padding: 190px 0;
+  position: relative;
+  width: var(--content-width);
+  margin: 0 auto;
+  padding-top: 100px;
+  z-index: 5;
+  @media (max-width: 1240px) {
+    width: 100%;
+    padding: 130px 20px;
   }
-  a {
-    text-decoration: none;
-    color: #e91e63;
+  .info-strip {
+    @media (max-width: 1240px) {
+      flex-flow: wrap;
+      justify-content: center; 
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .ttl {
+      margin-left: 10px;
+      font-size: 28px;
+      color: var(--c-primary);
+      text-shadow: var(--t-shadow-1);
+    }
+    .price {
+      margin-left: 20px;
+      font-size: 24px;
+      color: var(--c-primary);
+      text-shadow: var(--t-shadow-1);
+      @media (max-width: 1240px) {
+        flex: 0 0 100%;
+        margin: 30px 0 40px;
+        text-align: center;
+      }
+    }
+    .address-container {
+      display: flex;
+      height: 50px;
+      padding: 4px;
+      margin-left: auto;
+      background-color: var(--c-background-4);
+      flex-direction: row;
+      border-radius: var(--r-border-4);
+      align-items: center;
+      @media (max-width: 1240px) {
+        margin: 0;
+      }
+      .address-txt {
+        font-size: 17px;
+        padding-left: 16px;
+        margin-right: 10px;
+      }
+      .copy {
+        transition: filter .2s ease;
+        cursor: pointer;
+      }
+      .metamask {
+        display: flex;
+        min-width: 42px;
+        min-height: 42px;
+        background-color: var(--c-background-2);
+        border-radius: var(--r-border-4);
+        margin-left: 20px;
+        transition: background-color .2s ease;
+        cursor: pointer;
+        img {
+          width: 19px;
+          height: 18px;
+          margin: auto;
+        }
+      }
+    }
+    .btn.buy-swamp {
+      width: 200px;
+      margin-left: 10px;
+      @media (max-width: 1240px) {
+        margin: 0 0 0 20px;
+      }
+    }
   }
-`;
-export const FAQsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 15%;
-`;
-export const FAQsTitle = styled.h1`
-  color: #04396c;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  /* font-family: Chivo; */
-  font-weight: 900;
-  font-size: 48px;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-`;
-export const FAQsSubTitle = styled.h2`
-  /* font-family: Chivo, sans-serif; */
-  font-weight: 900;
-  font-size: 32px;
-  color: #333;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-`;
-export const FAQsContent = styled.div`
-  font-size: 20px;
-  color: #212529;
-  /* font-family: "Space Mono"; */
-  span {
-    font-weight: 700;
-    color: #e91e63;
-  }
-  a {
-    text-decoration: none;
-    color: #e91e63;
-  }
-`;
-export const PolygonTitle = styled.h3`
-  font-size: 24px;
-  color: #ec417a;
-  /* font-family: Chivo, sans-serif; */
-  font-weight: 900;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-`;
-export const PolygonContent = styled.div`
-  font-family: "Space Mono";
-  font-size: 16px;
-  font-weight: 400;
-  margin-top: 0;
-  margin-bottom: 1rem;
 `;

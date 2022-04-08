@@ -86,3 +86,24 @@ a.btn, div.btn {
   text-align: center;
   line-height: 50px;
 }
+
+a.btn.primary, div.btn.primary {
+  background-color: var(--c-primary);
+  box-shadow: var(--t-shadow-1);
+  color: var(--c-txt-3);
+}
+
+a.btn, div.btn {
+  width: fit-content;
+  position: relative;
+  height: 50px;
+  background-color: var(--c-secondary);
+  color: var(--c-txt);
+  border-radius: var(--r-border);
+  cursor: pointer;
+  transition: all .2s ease;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 50px;
+}

@@ -75,6 +75,9 @@ export const HeaderContainer = styled.div`
       @media (max-width: 1200px) {
         margin-right: 50px;
       }
+      @media (max-width: 800px) {
+        display: none;
+      }
       .swamp-price {
         display: flex;
         flex-direction: row;

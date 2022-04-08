@@ -31,11 +31,11 @@ const Header = () => {
           location.pathname === "/" ? <></> :
           <div className="wallet">
             <div className="swamp-price">
-              <img src={SwampImg} />
+              <img src={SwampImg} alt="swamp" />
               <div className="txt ml-10 price">$0.01</div>
             </div>
-            <a className="btn small ml-20 primary buy-swamp hidden">Buy </a>
-            <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock">Unlock Wallet</a>
+            <a className="btn small ml-20 primary buy-swamp hidden" href="#">Buy </a>
+            <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock" href="#">Unlock Wallet</a>
             <div className="balance ml-10 hidden">
             <span className="swamp-balance">0.00 </span>
               <div className="wallet-info">
