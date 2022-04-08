@@ -1,0 +1,48 @@
+:root {
+  --content-width: 1200px;
+  --content-width-half: 600px;
+  --c-background: #05090B;
+  --c-background-2: #3C4E5A;
+  --c-background-3: #16242E;
+  --c-background-4: #1D2F3B;
+  --c-txt: #FFFFFF;
+  --c-txt-2: #5C6D78;
+  --c-txt-3: #030609;
+  --c-txt-4: #90a2ab;
+  --c-primary: #ffc107;
+  --c-primary-50: #ffc1077F;
+  --c-primary-rgb: 255, 193, 7;
+  --c-primary-hover: #ffc100;
+  --c-secondary: #3C4E5A;
+  --c-secondary-hover: #516471;
+  --c-terciary: #4DD7DD;
+  --c-terciary-50: #4DD7DD7F;
+  --c-exit: #EE057B;
+  --t-shadow-1: 0 0 10px var(--c-primary);
+  --t-shadow-2: 0 0 20px var(--c-primary-50);
+  --t-shadow-3: 0 0 15px var(--c-primary);
+  --t-shadow-terciary-1: 0 0 20px var(--c-terciary-50);
+  --r-border: 16px;
+  --r-border-2: 8px;
+  --r-border-3: 20px;
+  --r-border-4: 15px;
+  --card-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --popup-container-background: rgba(5, 9, 11, 0.7);
+  --popup-shadow: 0 0 40px rgba(5, 9, 11, 0.7);
+  --popup-container-backdrop: blur(10px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: poppins,Arial,Verdana,Geneva,sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+div, body, input, span, a {
+  font-family: poppins,Arial,Verdana,Geneva,sans-serif;
+  box-sizing: border-box;
+}
