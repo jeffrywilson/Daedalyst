@@ -96,7 +96,7 @@ export const StaticsContainer = styled.div`
       }
       .stat {
         position: relative;
-        padding: 25px 30px;
+        padding: 31px 30px;
         border: var(--c-txt-2) 2px solid;
         border-radius: var(--r-border-3);
         .ttl {
