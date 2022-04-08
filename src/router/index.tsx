@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import FAQ from "../pages/FAQ";
+import Statics from "../pages/statics";
 import Home from "../pages/home";
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/faq" element={<FAQ />} />
+      <Route path="/statics" element={<Statics />} />
     </Routes>
   );
 };

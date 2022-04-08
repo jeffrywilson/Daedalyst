@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import WalletIcon from "../../../assets/wallet.svg";
 
 export const HeaderContainer = styled.div`
   position: fixed;
@@ -13,7 +14,7 @@ export const HeaderContainer = styled.div`
   .container {
     position: relative;
     display: flex;
-    height: 76px;
+    height: 120px;
     flex-direction: row;
     padding: 18px 44px;
     align-items: center;
@@ -21,7 +22,6 @@ export const HeaderContainer = styled.div`
     .logo {
       position: relative;
       display: block;
-      margin-top: 40px;
       img {
         height: 60px;
         @media (max-width: 630px) {
@@ -36,6 +36,73 @@ export const HeaderContainer = styled.div`
       display: block;
       min-height: 36px;
     }
+
+    menu {
+      @media (max-width: 1200px) {
+        display: none;
+      }
+      position: absolute;
+      width: fit-content;
+      left: calc(50% - 300px);
+      ul {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        color: var(--c-txt-2);
+        font-size: 20px;
+        pointer-events: none;
+        list-style: none;
+        li {
+          pointer-events: auto;
+          transition: color .2s ease;
+          &.selected {
+            color: var(--c-primary);
+            text-shadow: var(--t-shadow-1);
+          }
+
+          a {
+            color: inherit;
+          }
+        }
+      }
+    }
+
+    .wallet {
+      display: flex;
+      flex-direction: row;
+      margin-left: auto;
+      align-items: center;
+      @media (max-width: 1200px) {
+        margin-right: 50px;
+      }
+      .swamp-price {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          width: 35px;
+          height: 35px;
+        }
+        .price {
+          text-shadow: var(--t-shadow-1);
+          color: var(--c-primary);
+        }
+      }
+      .btn-wallet {
+        position: relative;
+        padding: 0 30px 0 70px;
+        &::before{
+          position: absolute;
+          content: '';
+          width: 20px;
+          height: 20px;
+          background-image: url(${WalletIcon});
+          left: 30px;
+          top: 9px;
+        }
+      }
+    }
+
     .hamburger {
       position: absolute;
       display: none;
@@ -44,7 +111,7 @@ export const HeaderContainer = styled.div`
       right: 45px;
       top: 45px;
     }
-    @media (max-width: 1700px) {
+    @media (max-width: 1200px) {
       .hamburger {
         display: block;
       }

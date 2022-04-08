@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import LogoImg from "../../../assets/background/logo.png";
+import SwampImg from "../../../assets/swamp.svg";
 import {
   HeaderContainer,
 } from "./index.styled";
-
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [ismenu, SetIsMenu] = useState<boolean>(false);
+  const location = useLocation();
+  console.log("location", location.pathname);
+
   return (
     <HeaderContainer>
       <div className="container">
@@ -15,6 +19,34 @@ const Header = () => {
             <img src={LogoImg} alt="Logo"/>
           </a>
         </div>
+        <menu>
+          <ul>
+            <div className="dropdown-container earn">
+              <li className="selected"><a href="/statistics/">Statistics</a></li>
+            </div>
+          </ul>
+        </menu>
+
+        {
+          location.pathname === "/" ? <></> :
+          <div className="wallet">
+            <div className="swamp-price">
+              <img src={SwampImg} />
+              <div className="txt ml-10 price">$0.01</div>
+            </div>
+            <a className="btn small ml-20 primary buy-swamp hidden">Buy </a>
+            <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock">Unlock Wallet</a>
+            <div className="balance ml-10 hidden">
+            <span className="swamp-balance">0.00 </span>
+              <div className="wallet-info">
+                <span className="wallet-address">...</span>
+                <span className="icon ml-10"></span>
+                <div className="mini-tag testnet">TESTNET</div>
+              </div>
+            </div>
+          </div>          
+        }
+
 
         <div className="hamburger" onClick={()=> {
           if (ismenu) {

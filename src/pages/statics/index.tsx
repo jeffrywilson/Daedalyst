@@ -3,7 +3,7 @@ import {
   FAQContainer,
 } from "./index.styled";
 
-const FAQ = () => {
+const Statics = () => {
   return (
     <FAQContainer>
       
@@ -11,4 +11,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default Statics;
