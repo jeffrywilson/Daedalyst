@@ -27,29 +27,10 @@ const Home = () => {
       text-align: center;
     }
     .sub-ttl {
-      color: var(--c-txt-4);
-      font-size: 24px;
-      margin: 20px 0;
+      width: 200px;
+      margin-top: 20px;
     }
-    .networks {
-      position: relative;
-      .network:not(:last-of-type) {
-        margin-right: 20px;
-      }
-      .network {
-        width: 48px;
-        height: 48px;
-        transition: opacity .2s ease;
-        cursor: pointer;
-        img {
-          height: 60px;
-          width: 60px;
-        }
-        &:hover {
-          
-        }
-      }
-    }
+    
     .social {
       @media (max-height: 1000px) {
         position: static;
@@ -86,12 +67,7 @@ const Home = () => {
     <>
       <Box>
         <div className="ttl">Multichain Yield farming optimizer.</div>
-        <div className="sub-ttl">Launch app:</div>
-        <div className="networks">
-          <a className="network" href="/app/" target="_blank" rel="noopener noreferrer">
-            <img src={LauchIconSrc} alt="social"/>
-          </a>
-        </div>
+        <div className="btn primary sub-ttl">Enter App</div>
 
         <div className="social">
           <a href="https://github.com/daedalyst.finance/" target="_blank" rel="noopener noreferrer" aria-label="github">
