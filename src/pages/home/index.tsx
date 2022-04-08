@@ -12,12 +12,14 @@ const Home = () => {
   const Box = styled.div`
     display: flex;
     width: 680px;
+    height: 100vh;
     @media (max-width: 630px) {
       width: 100%;
     }
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
+    justify-content: center;
+    padding-top: 150px;
     .ttl {
       color: var(--c-primary);
       font-size: 36px;

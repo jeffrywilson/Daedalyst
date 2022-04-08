@@ -5,7 +5,7 @@ export const StaticsContainer = styled.div`
   position: relative;
   width: var(--content-width);
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 200px;
   z-index: 5;
   @media (max-width: 800px) {
     width: 100%;
@@ -91,6 +91,9 @@ export const StaticsContainer = styled.div`
       display: flex;
       min-width: 360px;
       flex-direction: column;
+      .stat:not(:first-of-type) {
+        margin-top: 20px;
+      }
       .stat {
         position: relative;
         padding: 25px 30px;

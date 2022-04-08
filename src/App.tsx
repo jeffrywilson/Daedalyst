@@ -9,8 +9,7 @@ import styled from "styled-components";
 const App = () => {
   const Main = styled.div`
     display: flex;
-    height: 100vh;
-    background: black;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
