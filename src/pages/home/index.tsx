@@ -92,22 +92,22 @@ const Home = () => {
         </div>
 
         <div className="social">
-          <a href="https://github.com/swamp-finance/" target="_blank" rel="noopener noreferrer" aria-label="github">
+          <a href="https://github.com/daedalyst.finance/" target="_blank" rel="noopener noreferrer" aria-label="github">
             <img src={GithubIconSrc} alt="social"/>
           </a>
-          <a href="https://twitter.com/SwampFinance" target="_blank" rel="noopener noreferrer" aria-label="twitter">
+          <a href="https://twitter.com/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="twitter">
             <img src={TwitterIconSrc} alt="social"/>
           </a>
-          <a href="https://t.me/swampfinance" target="_blank" rel="noopener noreferrer" aria-label="telegram">
+          <a href="https://t.me/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="telegram">
             <img src={TelegramIconSrc} alt="social"/>
           </a>
-          <a href="https://swampfinance.medium.com" target="_blank" rel="noopener noreferrer" aria-label="medium">
+          <a href="https://daedalyst.finance.medium.com" target="_blank" rel="noopener noreferrer" aria-label="medium">
             <img src={MediumIconSrc} alt="social"/>
           </a>
-          <a href="https://discord.gg/EShGqrFwAF" target="_blank" rel="noopener noreferrer" aria-label="medium">
+          <a href="https://discord.gg/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="medium">
             <img src={DiscordIconSrc} alt="social"/>
           </a>
-          <a href="https://docs.swamp.finance" target="_blank" rel="noopener noreferrer" aria-label="github books">
+          <a href="https://docs.daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="github books">
             <img src={BooksIconSrc} alt="social"/>
           </a>
         </div>

@@ -7,7 +7,7 @@ export const StaticsContainer = styled.div`
   margin: 0 auto;
   padding-top: 100px;
   z-index: 5;
-  @media (max-width: 1240px) {
+  @media (max-width: 800px) {
     width: 100%;
     padding: 130px 20px;
   }
