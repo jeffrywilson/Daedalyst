@@ -42,10 +42,25 @@ const Statics = () => {
           </div>
         </div>
         <div className="chart-container">
-          
+          <div className="toolbar">
+            <div className="options index-1">
+              <div className="option price" data-value="price" data-index="0">Price</div>
+              <div className="option tvl selected" data-value="tvl" data-index="1">TVL</div>
+            </div>
+            <div className="dropdown-wrapper time-dropdown" data-value="week" data-name="Week">
+              <div className="dropdown">
+                <div className="itm" data-value="week" data-name="Week">Week</div>
+                <div className="itm" data-value="month" data-name="Month">Month</div>
+                <div className="itm" data-value="all" data-name="All">All</div>
+              </div>
+            </div>
+          </div>
+          <div className="chart-wrapper">
+            <canvas id="chart" className="chart" width="1510" height="536">
+            </canvas>
+          </div>
         </div>
       </div>
-
 
       <div className="wallet-container">
         <div className="info-strip">
