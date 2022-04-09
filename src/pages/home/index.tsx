@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import LauchIconSrc from "../../assets/launch.svg";
-import TelegramIconSrc from "../../assets/social/telegram.svg";
 import DiscordIconSrc from "../../assets/social/discord.svg";
 import TwitterIconSrc from "../../assets/social/twitter.svg";
-import MediumIconSrc from "../../assets/social/medium.svg";
-import GithubIconSrc from "../../assets/social/github.svg";
-import BooksIconSrc from "../../assets/social/books.svg";
+
+// import LauchIconSrc from "../../assets/launch.svg";
+// import TelegramIconSrc from "../../assets/social/telegram.svg";
+// import MediumIconSrc from "../../assets/social/medium.svg";
+// import GithubIconSrc from "../../assets/social/github.svg";
+// import BooksIconSrc from "../../assets/social/books.svg";
 
 const Home = () => {
   const Box = styled.div`
@@ -27,8 +28,8 @@ const Home = () => {
       text-align: center;
     }
     .sub-ttl {
-      width: 200px;
-      margin-top: 20px;
+      width: 250px;
+      margin-top: 35px;
     }
     
     .social {
@@ -66,28 +67,28 @@ const Home = () => {
   return (
     <>
       <Box>
-        <div className="ttl">Multichain Yield farming optimizer.</div>
-        <div className="btn primary sub-ttl">Enter App</div>
+        <div className="ttl">High Impact Analytics on Solana</div>
+        <div className="btn primary sub-ttl">Enter Demo App</div>
 
         <div className="social">
-          <a href="https://github.com/daedalyst.finance/" target="_blank" rel="noopener noreferrer" aria-label="github">
+          {/* <a href="https://github.com/daedalyst.finance/" target="_blank" rel="noopener noreferrer" aria-label="github">
             <img src={GithubIconSrc} alt="social"/>
-          </a>
+          </a> */}
           <a href="https://twitter.com/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="twitter">
             <img src={TwitterIconSrc} alt="social"/>
           </a>
-          <a href="https://t.me/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="telegram">
+          {/* <a href="https://t.me/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="telegram">
             <img src={TelegramIconSrc} alt="social"/>
-          </a>
-          <a href="https://daedalyst.finance.medium.com" target="_blank" rel="noopener noreferrer" aria-label="medium">
+          </a> */}
+          {/* <a href="https://daedalyst.finance.medium.com" target="_blank" rel="noopener noreferrer" aria-label="medium">
             <img src={MediumIconSrc} alt="social"/>
-          </a>
+          </a> */}
           <a href="https://discord.gg/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="medium">
             <img src={DiscordIconSrc} alt="social"/>
           </a>
-          <a href="https://docs.daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="github books">
+          {/* <a href="https://docs.daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="github books">
             <img src={BooksIconSrc} alt="social"/>
-          </a>
+          </a> */}
         </div>
       </Box>
 

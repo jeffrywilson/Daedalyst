@@ -22,7 +22,7 @@ const Header = () => {
         <menu>
           <ul>
             <div className="dropdown-container earn">
-              <li className="selected"><a href="/statistics/">Statistics</a></li>
+              <li className="selected"><a href="/statistics/">Demo App</a></li>
             </div>
           </ul>
         </menu>
@@ -69,18 +69,18 @@ const Header = () => {
       <div className="mobile-menu" id="mobilemenu">
         <div className="menu">
           <ul>
-            <li><a href="/app/">Earn (BSC)</a></li>
+            {/* <li><a href="/app/">Earn (BSC)</a></li>
             <li><a href="/polygon/">Earn (Polygon)</a></li>
             <li><a href="/fantom/">Earn (Fantom)</a></li>
             <li><a href="/avalanche/">Earn (Avalanche)</a></li>
             <li><a href="/okexchain/">Earn (OKEx)</a></li>
-            <li><a href="/marketplace/">Marketplace</a></li>
-            <li><a href="/statistics/">Statistics</a></li>
-            <li><a href="/create-lp/">Create LP</a></li>
+            <li><a href="/marketplace/">Marketplace</a></li> */}
+            <li><a href="/statistics/">Demo App</a></li>
+            {/* <li><a href="/create-lp/">Create LP</a></li>
             <li><a href="/tutorials/">Tutorials</a></li>
             <li><a href="https://docs.swamp.finance/">Docs</a></li>
             <li><a href="/buy-bnb/">Buy BNB</a></li>
-            <li><a href="/download-wallet/">Download Wallet</a></li>
+            <li><a href="/download-wallet/">Download Wallet</a></li> */}
           </ul>
         </div>
       </div>

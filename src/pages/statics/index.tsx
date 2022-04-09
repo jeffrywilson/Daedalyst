@@ -2,6 +2,8 @@ import React from "react";
 import SwampImg from "../../assets/swamp.svg";
 import CopyImg from "../../assets/copy.svg";
 import MetaMaskImg from "../../assets/metamask.svg";
+import WalletIconImg from "../../assets/wallet.svg";
+
 import {
   StaticsContainer,
 } from "./index.styled";
@@ -47,7 +49,7 @@ const Statics = () => {
 
       <div className="wallet-container">
         <div className="info-strip">
-          <img width="24" height="24" src="/static/frontend/img/wallet.svg" />
+          <img width="24" height="24" src={WalletIconImg} alt="wallet" />
           <div className="wallet-ttl">My wallet</div>
           <div className="txt loading harvest-amount">
             <div className="swamp-amount">0.00</div>
@@ -72,8 +74,8 @@ const Statics = () => {
               <div className="scroll-container">
                 <div className="itm template" data-symbols-url="/static/frontend/img/symbols/" data-symbols-custom-url="/static/frontend/img/symbols/custom/">
                   <div className="symbols">
-                    <img src="/static/frontend/img/symbols/swamp.svg" />
-                    <img src="/static/frontend/img/symbols/swamp.svg" />
+                    <img src="/static/frontend/img/symbols/swamp.svg" alt="swamp"/>
+                    <img src="/static/frontend/img/symbols/swamp.svg" alt="swamp"/>
                   </div>
                   <div className="values">
                     <div className="ttl">Swamp</div>

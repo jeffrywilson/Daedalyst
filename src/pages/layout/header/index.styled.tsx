@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   z-index: 10;
   transition: background-color .2s ease;
-
+  background-color: var(--c-background);
   .container {
     position: relative;
     display: flex;
@@ -43,7 +43,7 @@ export const HeaderContainer = styled.div`
       }
       position: absolute;
       width: fit-content;
-      left: calc(50% - 300px);
+      left: calc(100% - 600px);
       ul {
         position: relative;
         display: flex;

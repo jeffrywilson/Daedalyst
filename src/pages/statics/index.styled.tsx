@@ -167,13 +167,12 @@ export const StaticsContainer = styled.div`
             right: 0;
             top: 0;
           }
+          visibility: hidden;
         }
         .swamp-value {
           font-size: 18px;
           color: var(--c-txt-2);
           margin-left: 5px;
-        }
-        &.loading .swamp-amount .swamp-value {
           visibility: hidden;
         }
       }
