@@ -129,3 +129,22 @@ a.btn.disabled, div.btn.disabled {
   color: var(--c-txt-2);
   box-shadow: none;
 }
+
+@keyframes slidein {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
