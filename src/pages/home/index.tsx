@@ -2,14 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import DiscordIconSrc from "../../assets/social/discord.svg";
 import TwitterIconSrc from "../../assets/social/twitter.svg";
-
-// import LauchIconSrc from "../../assets/launch.svg";
-// import TelegramIconSrc from "../../assets/social/telegram.svg";
-// import MediumIconSrc from "../../assets/social/medium.svg";
-// import GithubIconSrc from "../../assets/social/github.svg";
-// import BooksIconSrc from "../../assets/social/books.svg";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  let navigate = useNavigate();
   const Box = styled.div`
     display: flex;
     width: 680px;
@@ -68,27 +64,20 @@ const Home = () => {
     <>
       <Box>
         <div className="ttl">High Impact Analytics on Solana</div>
-        <div className="btn primary sub-ttl">Enter Demo App</div>
+        <div className="btn primary sub-ttl" onClick={()=> {
+          navigate('/statistics');
+        }}>Enter Demo App</div>
 
         <div className="social">
-          {/* <a href="https://github.com/daedalyst.finance/" target="_blank" rel="noopener noreferrer" aria-label="github">
-            <img src={GithubIconSrc} alt="social"/>
-          </a> */}
+         
           <a href="https://twitter.com/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="twitter">
             <img src={TwitterIconSrc} alt="social"/>
           </a>
-          {/* <a href="https://t.me/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="telegram">
-            <img src={TelegramIconSrc} alt="social"/>
-          </a> */}
-          {/* <a href="https://daedalyst.finance.medium.com" target="_blank" rel="noopener noreferrer" aria-label="medium">
-            <img src={MediumIconSrc} alt="social"/>
-          </a> */}
+          
           <a href="https://discord.gg/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="medium">
             <img src={DiscordIconSrc} alt="social"/>
           </a>
-          {/* <a href="https://docs.daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="github books">
-            <img src={BooksIconSrc} alt="social"/>
-          </a> */}
+        
         </div>
       </Box>
 

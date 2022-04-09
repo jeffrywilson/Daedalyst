@@ -191,7 +191,16 @@ export const StaticsContainer = styled.div`
           outline: none;
           transition: border .2s ease;
           cursor: pointer;
-
+          &.opened {
+            border-color: var(--c-primary);
+            .dropdown {
+              display: block;
+              animation: dropdown-fly-in .2s ease;
+              pointer-events: auto;
+              z-index: 10;
+              user-select: none;
+            }
+          }
           &::before {
             content: attr(data-name);
             position: absolute;
