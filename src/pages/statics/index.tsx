@@ -1,14 +1,60 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import SwampImg from "../../assets/swamp.svg";
 import CopyImg from "../../assets/copy.svg";
 import MetaMaskImg from "../../assets/metamask.svg";
 import WalletIconImg from "../../assets/wallet.svg";
-
 import {
   StaticsContainer,
 } from "./index.styled";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const Statics = () => {
+  const [isdropdown, SetIsDropDown] = useState<boolean>(false);
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top' as const,
+      },
+      title: {
+        display: false,
+        text: 'Chart.js Line Chart',
+      },
+    },
+  };
+  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1
+    }]
+  };
+
   return (
     <StaticsContainer>
       <div className="info-strip">
@@ -17,11 +63,11 @@ const Statics = () => {
         <div className="price">$0.01</div>
 
         <div className="address-container">
-            <span className="address-txt">...</span>
-            <img className="copy" src={CopyImg} alt="copy" />
-            <div className="metamask">
-                <img src={MetaMaskImg} alt="metamask" />
-            </div>
+          <span className="address-txt">...</span>
+          <img className="copy" src={CopyImg} alt="copy" />
+          <div className="metamask">
+              <img src={MetaMaskImg} alt="metamask" />
+          </div>
         </div>
         <div className="btn primary buy-swamp">Buy SWAMP</div>
       </div>
@@ -47,7 +93,13 @@ const Statics = () => {
               <div className="option price" data-value="price" data-index="0">Price</div>
               <div className="option tvl selected" data-value="tvl" data-index="1">TVL</div>
             </div>
-            <div className="dropdown-wrapper time-dropdown" data-value="week" data-name="Week">
+            <div className={ isdropdown? "dropdown-wrapper time-dropdown opened" : "dropdown-wrapper time-dropdown"} data-value="week" data-name="Week" onClick={()=>{
+              if (isdropdown) {
+                SetIsDropDown(false);
+              } else {
+                SetIsDropDown(true);
+              }
+            }}>
               <div className="dropdown">
                 <div className="itm" data-value="week" data-name="Week">Week</div>
                 <div className="itm" data-value="month" data-name="Month">Month</div>
@@ -56,12 +108,11 @@ const Statics = () => {
             </div>
           </div>
           <div className="chart-wrapper">
-            <canvas id="chart" className="chart" width="1510" height="536">
-            </canvas>
+            <Line options={options} data={data} height="100" />
           </div>
         </div>
       </div>
-
+      
       <div className="wallet-container">
         <div className="info-strip">
           <img width="24" height="24" src={WalletIconImg} alt="wallet" />
@@ -115,8 +166,6 @@ const Statics = () => {
         
         </div>
       </div>
-
-
     </StaticsContainer>
   );
 };
