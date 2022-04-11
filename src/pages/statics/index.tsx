@@ -38,27 +38,24 @@ const Statics = () => {
         position: 'top' as const,
         display: false,
       },
-     
       title: {
         display: false,
         text: 'Chart.js Line Chart',
       },
-    },
-    bezierCurve : false,
-    scaleShowValues: false,
-    scales: {
-      // x: {
-      //   display: false // Hide Y axis labels
-      // },
-    },
-    tooltips: {
-      callbacks: {
-         label: function(tooltipItem: any) {
-                return tooltipItem.yLabel;
-         }
+      tooltip: {
+        mode: "index",
+        intersect: false,
+        displayColors: false,
+        callbacks: {
+          label: function(tooltipItem: any) {
+            console.log("here", tooltipItem.raw);
+            return tooltipItem.raw;
+          }
+        }
       }
     }
   };
+
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   const data = {
     labels: labels,
@@ -66,8 +63,10 @@ const Statics = () => {
       label: 'DataSet',
       data: [65, 59, 80, 81, 56, 55, 40],
       fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.3
+      borderColor: '#c36503',
+      borderWidth: 4,
+      tension: 0.3,
+      pointRadius: 0
     }]
   };
 
