@@ -42,14 +42,14 @@ const Statics = () => {
         display: false,
         text: 'Chart.js Line Chart',
       },
-      tooltip: {
-        mode: "index",
-        intersect: false,
-        displayColors: false,
-        callbacks: {
-          label: function(tooltipItem: any) {
-            return tooltipItem.raw;
-          }
+    },
+    tooltip: {
+      mode: "index",
+      intersect: false,
+      displayColors: false,
+      callbacks: {
+        label: function(tooltipItem: any) {
+          return tooltipItem.raw;
         }
       }
     },
