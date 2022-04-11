@@ -48,12 +48,28 @@ const Statics = () => {
         displayColors: false,
         callbacks: {
           label: function(tooltipItem: any) {
-            console.log("here", tooltipItem.raw);
             return tooltipItem.raw;
           }
         }
       }
-    }
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        ticks: {
+          callback: function (value: any, index: any, values: any) {
+            return `$${value}`;
+          },
+        },
+        // grid: {
+        //   color: "#5C6D78"
+        // }
+      },
+    },
   };
 
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
