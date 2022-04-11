@@ -17,6 +17,9 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import faker from 'faker';
+import * as moment from "moment";
+import {extendMoment} from "moment-range";
 
 ChartJS.register(
   CategoryScale,
@@ -25,12 +28,19 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 const Statics = () => {
   const [isdropdown, SetIsDropDown] = useState<boolean>(false);
 
+  
+  const rangeMoment = extendMoment(moment);
+  const start = new Date(2012, 0, 15);
+  const end   = new Date(2012, 4, 23);
+  const range = rangeMoment.range(start, end);
+  console.log("range", range);
+  
   const options = {
     responsive: true,
     plugins: {
@@ -43,7 +53,6 @@ const Statics = () => {
         text: 'Chart.js Line Chart',
       },
       tooltip: {
-        // mode: "index",
         intersect: false,
         displayColors: false,
         callbacks: {
@@ -58,7 +67,7 @@ const Statics = () => {
       x: {
         grid: {
           display: false
-        }
+        },
       },
       y: {
         ticks: {
@@ -73,12 +82,13 @@ const Statics = () => {
     },
   };
 
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+  let labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   const data = {
     labels: labels,
     datasets: [{
       label: 'DataSet',
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 200 })),
       fill: false,
       borderColor: '#c36503',
       borderWidth: 4,
