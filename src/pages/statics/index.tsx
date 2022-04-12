@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 import SwampImg from "../../assets/swamp.svg";
 import CopyImg from "../../assets/copy.svg";
 import MetaMaskImg from "../../assets/metamask.svg";
@@ -20,6 +21,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import moment from 'moment';
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 ChartJS.register(
   CategoryScale,
@@ -102,9 +104,13 @@ const Statics = () => {
     },
   };
 
-  
+  const ref = useRef(null);
+  useOutsideClick(ref, () => {
+    SetIsDropDown(false);
+  });
+
   return (
-    <StaticsContainer>
+    <StaticsContainer >
       <div className="info-strip">
         <img width="40" height="40" className="swamp-icon" src={SwampImg} alt="swamp" />
         <div className="ttl">Swamp (SWAMP)</div>
@@ -135,19 +141,24 @@ const Statics = () => {
             <div className="val">$0</div>
           </div>
         </div>
-        <div className="chart-container">
+        <div className="chart-container" >
           <div className="toolbar">
             <div className="options index-1">
               <div className="option price" data-value="price" data-index="0">Price</div>
               <div className="option tvl selected" data-value="tvl" data-index="1">TVL</div>
             </div>
-            <div className={ isdropdown? "dropdown-wrapper time-dropdown opened" : "dropdown-wrapper time-dropdown"} data-value={dataVal} data-name={dataVal} onClick={()=>{
-              if (isdropdown) {
-                SetIsDropDown(false);
-              } else {
-                SetIsDropDown(true);
-              }
-            }}>
+            <div 
+              ref={ref}
+              className={ isdropdown? "dropdown-wrapper time-dropdown opened" : "dropdown-wrapper time-dropdown"}
+              data-value={dataVal} data-name={dataVal} 
+              onClick={()=>{
+                if (isdropdown) {
+                  SetIsDropDown(false);
+                } else {
+                  SetIsDropDown(true);
+                }
+              }}>
+
               <div className="dropdown">
                 <div className="itm" data-value="Week" data-name="Week" onClick={()=>{
                   SetDataVal("Week");
@@ -162,6 +173,7 @@ const Statics = () => {
                   setDay(600);
                 }}>All</div>
               </div>
+              
             </div>
           </div>
           <div className="chart-wrapper">
