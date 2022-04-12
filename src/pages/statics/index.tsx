@@ -19,7 +19,7 @@ import {
   TimeSeriesScale
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { date } from "faker";
+import moment from 'moment';
 
 ChartJS.register(
   CategoryScale,
@@ -35,17 +35,19 @@ ChartJS.register(
 
 const Statics = () => {
   const [isdropdown, SetIsDropDown] = useState<boolean>(false);
+  const [dataVal, SetDataVal] = useState("Week");
   const [_token, setToken] = useState("SOL");
+  const [_day, setDay] = useState(7);
   const [_times, setTimes] = useState();
   const [_prices, setPrices] = useState();
 
   useEffect(() => {
     const solData = async () => {
-      const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histominute?fsym=${_token}&tsym=USD&limit=119&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`);
+      const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${_token}&tsym=USD&limit=${_day}&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`);
       
       const json = await response.json();
       const data = json.Data.Data
-      const times = data.map((obj: { time: any; }) => obj.time)
+      const times = data.map((obj: { time: any; }) => moment(new Date(obj.time * 1000)).format("MMM D"))
       const prices = data.map((obj: { high: any; }) => obj.high)
       setTimes(times);
       setPrices(prices);
@@ -54,7 +56,7 @@ const Statics = () => {
     solData()
       // make suer to catch any error
       .catch(console.error);
-  }, [_token]);
+  }, [_token, _day]);
   
   
   const options = {
@@ -82,7 +84,8 @@ const Statics = () => {
     scales: {
       x: {
         grid: {
-          display: false
+          // display: false
+          color: "#16242E"
         },
       },
       y: {
@@ -91,9 +94,9 @@ const Statics = () => {
             return `$${value}`;
           },
         },
-        // grid: {
-        //   color: "#5C6D78"
-        // }
+        grid: {
+          color: "#1d2f3b"
+        }
       },
     },
   };
@@ -137,7 +140,7 @@ const Statics = () => {
               <div className="option price" data-value="price" data-index="0">Price</div>
               <div className="option tvl selected" data-value="tvl" data-index="1">TVL</div>
             </div>
-            <div className={ isdropdown? "dropdown-wrapper time-dropdown opened" : "dropdown-wrapper time-dropdown"} data-value="week" data-name="Week" onClick={()=>{
+            <div className={ isdropdown? "dropdown-wrapper time-dropdown opened" : "dropdown-wrapper time-dropdown"} data-value={dataVal} data-name={dataVal} onClick={()=>{
               if (isdropdown) {
                 SetIsDropDown(false);
               } else {
@@ -145,9 +148,18 @@ const Statics = () => {
               }
             }}>
               <div className="dropdown">
-                <div className="itm" data-value="week" data-name="Week">Week</div>
-                <div className="itm" data-value="month" data-name="Month">Month</div>
-                <div className="itm" data-value="all" data-name="All">All</div>
+                <div className="itm" data-value="Week" data-name="Week" onClick={()=>{
+                  SetDataVal("Week");
+                  setDay(7);
+                }}>Week</div>
+                <div className="itm" data-value="month" data-name="Month" onClick={() => {
+                  SetDataVal("Month");
+                  setDay(31);
+                }}>Month</div>
+                <div className="itm" data-value="all" data-name="All" onClick={()=>{
+                  SetDataVal("All");
+                  setDay(600);
+                }}>All</div>
               </div>
             </div>
           </div>
