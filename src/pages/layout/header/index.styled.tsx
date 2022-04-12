@@ -43,7 +43,7 @@ export const HeaderContainer = styled.div`
       }
       position: absolute;
       width: fit-content;
-      left: calc(100% - 600px);
+      left: calc(100% - 50px);
       ul {
         position: relative;
         display: flex;
@@ -78,6 +78,7 @@ export const HeaderContainer = styled.div`
       @media (max-width: 800px) {
         display: none;
       }
+      
       .swamp-price {
         display: flex;
         flex-direction: row;

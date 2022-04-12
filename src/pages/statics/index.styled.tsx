@@ -200,6 +200,9 @@ export const StaticsContainer = styled.div`
               z-index: 10;
               user-select: none;
             }
+            &::after {
+              transform: rotateZ(180deg);
+            }
           }
           &::before {
             content: attr(data-name);
@@ -235,8 +238,14 @@ export const StaticsContainer = styled.div`
               font-size: 15px;
               padding: 15px 24px;
               transition: background-color .2s ease;
-              &.first-of-type {
+              &:hover {
+                background-color: var(--c-txt-2);
+              }
+              &:first-of-type {
                 border-radius: var(--r-border) var(--r-border) 0 0;
+              }
+              &:last-of-type {
+                border-radius: 0 0 var(--r-border) var(--r-border);
               }
             }
           }

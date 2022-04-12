@@ -5,11 +5,17 @@ import {
   HeaderContainer,
 } from "./index.styled";
 import { useLocation } from 'react-router-dom';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 const Header = () => {
   const [ismenu, SetIsMenu] = useState<boolean>(false);
   const location = useLocation();
-  console.log("location", location.pathname);
+  const options = [
+    'SOL', 'STEP', 'ATLAS'
+  ];
+  const defaultOption = options[0];
+  
 
   return (
     <HeaderContainer>
@@ -31,9 +37,15 @@ const Header = () => {
           location.pathname === "/" ? <></> :
           <div className="wallet">
             <div className="swamp-price">
-              <img src={SwampImg} alt="swamp" />
-              <div className="txt ml-10 price">$0.01</div>
+              {/* <img src={SwampImg} alt="swamp" /> */}
+              {/* <div className="txt ml-10 price">$0.01</div> */}
+
+              <Dropdown 
+                options={options} value={defaultOption} placeholder="Select an option"
+              />
             </div>
+
+
             <a className="btn small ml-20 primary buy-swamp hidden" href="#">Buy </a>
             <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock" href="#">Unlock Wallet</a>
             <div className="balance ml-10 hidden">

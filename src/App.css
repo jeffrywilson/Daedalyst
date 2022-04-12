@@ -148,3 +148,22 @@ a.btn.disabled, div.btn.disabled {
     transform: rotate(359deg);
   }
 }
+
+
+.Dropdown-control {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent !important;
+  border: 1px solid #ccc !important;
+  box-sizing: border-box;
+  color: #333;
+  cursor: default;
+  outline: none;
+  padding: 8px 52px 8px 10px;
+  transition: all 200ms ease;
+  color: var(--c-txt) !important;
+  border-radius: var(--r-border) !important;
+  min-width: 125px !important;
+  border: var(--c-txt-2) solid 2px !important;
+}
+
