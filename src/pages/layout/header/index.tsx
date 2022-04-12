@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import LogoImg from "../../../assets/background/logo.png";
+import { setToken } from "../../../redux/actionCreators/setToken";
 import SwampImg from "../../../assets/swamp.svg";
-import {
-  HeaderContainer,
-} from "./index.styled";
+import { HeaderContainer } from "./index.styled";
 import { useLocation } from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -11,11 +11,9 @@ import 'react-dropdown/style.css';
 const Header = () => {
   const [ismenu, SetIsMenu] = useState<boolean>(false);
   const location = useLocation();
-  const options = [
-    'SOL', 'STEP', 'ATLAS'
-  ];
+  const options = ['SOL', 'USDC', 'ATLAS'];
   const defaultOption = options[0];
-  
+  const dispatch = useDispatch();
 
   return (
     <HeaderContainer>
@@ -41,7 +39,9 @@ const Header = () => {
               {/* <div className="txt ml-10 price">$0.01</div> */}
 
               <Dropdown 
-                options={options} value={defaultOption} placeholder="Select an option"
+                options={options} value={defaultOption} onChange={(selected)=>{
+                  dispatch(setToken(selected.value));
+                }} placeholder="Select an option"
               />
             </div>
 

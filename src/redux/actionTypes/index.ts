@@ -1,10 +1,10 @@
 export enum ActionType {
-  GET_COLOR_INDEX_SUCCESS = "GET_COLOR_INDEX_SUCCESS",
+  SET_TOKEN_NAME_SUCCESS = "SET_TOKEN_NAME_SUCCESS",
 }
 
 interface actionSuccess {
-  type: ActionType.GET_COLOR_INDEX_SUCCESS;
-  payload: Number;
+  type: ActionType.SET_TOKEN_NAME_SUCCESS;
+  payload: string;
 }
 
 export type Action = actionSuccess;

@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import colorReducer from "./index";
 
 const reducers = combineReducers({
-  color: colorReducer,
+  name: colorReducer,
 });
 
 export default reducers;

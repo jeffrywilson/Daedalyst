@@ -1,12 +1,12 @@
 import { Dispatch } from "redux";
 import { ActionType, Action } from "../actionTypes";
 
-export const getColor = (postId: Number) => {
+export const setToken = (tokenName: string) => {
   return async (dispatch: Dispatch<Action>) => {
     
     dispatch({
-      type: ActionType.GET_COLOR_INDEX_SUCCESS,
-      payload: postId,
+      type: ActionType.SET_TOKEN_NAME_SUCCESS,
+      payload: tokenName,
     });
   };
 };

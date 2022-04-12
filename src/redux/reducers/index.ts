@@ -1,18 +1,18 @@
 import { Action, ActionType } from "../actionTypes/index";
 
 interface State {
-  index: Number | null;
+  name: string | null;
 }
 
 const initialState = {
-  index: null,
+  name: "SOL",
 };
 
 const colorReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
-    case ActionType.GET_COLOR_INDEX_SUCCESS:
+    case ActionType.SET_TOKEN_NAME_SUCCESS:
       return {
-        index: action.payload,
+        name: action.payload,
       };
 
     default:
