@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import SwampImg from "../../assets/swamp.svg";
 import CopyImg from "../../assets/copy.svg";
 import MetaMaskImg from "../../assets/metamask.svg";
@@ -15,11 +15,11 @@ import {
   Title,
   Tooltip,
   Legend,
+  TimeScale,
+  TimeSeriesScale
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import faker from 'faker';
-import * as moment from "moment";
-import {extendMoment} from "moment-range";
+import { date } from "faker";
 
 ChartJS.register(
   CategoryScale,
@@ -29,17 +29,33 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
+  TimeScale,
+  TimeSeriesScale
 );
 
 const Statics = () => {
   const [isdropdown, SetIsDropDown] = useState<boolean>(false);
+  const [_token, setToken] = useState("SOL");
+  const [_times, setTimes] = useState();
+  const [_prices, setPrices] = useState();
 
+  useEffect(() => {
+    const solData = async () => {
+      const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histominute?fsym=${_token}&tsym=USD&limit=119&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`);
+      
+      const json = await response.json();
+      const data = json.Data.Data
+      const times = data.map((obj: { time: any; }) => obj.time)
+      const prices = data.map((obj: { high: any; }) => obj.high)
+      setTimes(times);
+      setPrices(prices);
+    }
+    // call the function
+    solData()
+      // make suer to catch any error
+      .catch(console.error);
+  }, [_token]);
   
-  const rangeMoment = extendMoment(moment);
-  const start = new Date(2012, 0, 15);
-  const end   = new Date(2012, 4, 23);
-  const range = rangeMoment.range(start, end);
-  console.log("range", range);
   
   const options = {
     responsive: true,
@@ -82,21 +98,7 @@ const Statics = () => {
     },
   };
 
-
-  let labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'DataSet',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 200 })),
-      fill: false,
-      borderColor: '#c36503',
-      borderWidth: 4,
-      tension: 0.3,
-      pointRadius: 0
-    }]
-  };
-
+  
   return (
     <StaticsContainer>
       <div className="info-strip">
@@ -150,7 +152,18 @@ const Statics = () => {
             </div>
           </div>
           <div className="chart-wrapper">
-            <Line options={options} data={data} height="100" />
+            <Line options={options} height="100" data={{
+              labels: _times,
+              datasets: [{
+                label: 'DataSet',
+                data: _prices,
+                fill: false,
+                borderColor: '#c36503',
+                borderWidth: 4,
+                tension: 0.3,
+                pointRadius: 0
+              }]
+            }}  />
           </div>
         </div>
       </div>
