@@ -95,6 +95,7 @@ export const HeaderContainer = styled.div`
       .btn-wallet {
         position: relative;
         padding: 0 30px 0 70px;
+        background-color: var(--c-secondary);
         &::before{
           position: absolute;
           content: '';
@@ -102,7 +103,7 @@ export const HeaderContainer = styled.div`
           height: 20px;
           background-image: url(${WalletIcon});
           left: 30px;
-          top: 9px;
+          top: 15px;
         }
       }
       .balance {

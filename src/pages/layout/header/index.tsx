@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import LogoImg from "../../../assets/background/logo.png";
 import { setToken } from "../../../redux/actionCreators/setToken";
@@ -8,12 +8,56 @@ import { useLocation } from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
+
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import {
+    LedgerWalletAdapter,
+    PhantomWalletAdapter,
+    SlopeWalletAdapter,
+    SolflareWalletAdapter,
+    SolletExtensionWalletAdapter,
+    SolletWalletAdapter,
+    TorusWalletAdapter,
+} from '@solana/wallet-adapter-wallets';
+import {
+    WalletModalProvider,
+    WalletDisconnectButton,
+    WalletMultiButton
+} from '@solana/wallet-adapter-react-ui';
+import { clusterApiUrl } from '@solana/web3.js';
+// Default styles that can be overridden by your app
+require('@solana/wallet-adapter-react-ui/styles.css');
+
+
 const Header = () => {
   const [ismenu, SetIsMenu] = useState<boolean>(false);
   const location = useLocation();
   const options = ['SOL', 'USDC', 'ATLAS'];
   const defaultOption = options[0];
   const dispatch = useDispatch();
+
+  // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
+  const network = WalletAdapterNetwork.Devnet;
+
+  // You can also provide a custom RPC endpoint.
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+
+  // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking and lazy loading --
+  // Only the wallets you configure here will be compiled into your application, and only the dependencies
+  // of wallets that your users connect to will be loaded.
+  const wallets = useMemo(
+    () => [
+      new PhantomWalletAdapter(),
+      new SlopeWalletAdapter(),
+      new SolflareWalletAdapter({ network }),
+      new TorusWalletAdapter(),
+      new LedgerWalletAdapter(),
+      new SolletWalletAdapter({ network }),
+      new SolletExtensionWalletAdapter({ network }),
+    ],
+    [network]
+  );
 
   return (
     <HeaderContainer>
@@ -46,8 +90,21 @@ const Header = () => {
             </div>
 
 
+            
+
             <a className="btn small ml-20 primary buy-swamp hidden" href="#">Buy </a>
-            <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock" href="#">Unlock Wallet</a>
+            {/* <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock" href="#"></a> */}
+
+            <ConnectionProvider endpoint={endpoint}>
+                <WalletProvider wallets={wallets} autoConnect>
+                    <WalletModalProvider>
+                        <WalletMultiButton className="btn small ml-20 btn-wallet" />
+                        {/* <WalletDisconnectButton /> */}
+                        { /* Your app's components go here, nested within the context providers. */ }
+                    </WalletModalProvider>
+                </WalletProvider>
+            </ConnectionProvider>
+
             <div className="balance ml-10 hidden">
             <span className="swamp-balance">0.00 </span>
               <div className="wallet-info">
