@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import SwampImg from "../../assets/swamp.svg";
+import SolTokenImg from "../../assets/token/sol.png";
+import AtlasTokenImg from "../../assets/token/atlas.png";
+import StepTokenImg from "../../assets/token/step.png";
 import CopyImg from "../../assets/copy.svg";
 import MetaMaskImg from "../../assets/metamask.svg";
 import WalletIconImg from "../../assets/wallet.svg";
@@ -114,7 +117,10 @@ const Statics = () => {
   return (
     <StaticsContainer >
       <div className="info-strip">
-        <img width="40" height="40" className="swamp-icon" src={SwampImg} alt="swamp" />
+        
+        { name === "SOL" ? <img width="40" height="40" className="swamp-icon" src={SolTokenImg} alt="sol" /> : <></> }
+        { name === "USDC" ? <img width="40" height="40" className="swamp-icon" src={StepTokenImg} alt="step" /> : <></> }
+        { name === "ATLAS" ? <img width="40" height="40" className="swamp-icon" src={AtlasTokenImg} alt="altlas" /> : <></> }
         <div className="ttl">{name} </div>
         <div className="price">$0.01</div>
 
