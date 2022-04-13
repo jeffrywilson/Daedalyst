@@ -65,7 +65,7 @@ const Home = () => {
       <Box>
         <div className="ttl">High Impact Analytics on Solana</div>
         <div className="btn primary sub-ttl" onClick={()=> {
-          navigate('/statistics');
+          navigate('/demo');
         }}>Enter Demo App</div>
 
         <div className="social">

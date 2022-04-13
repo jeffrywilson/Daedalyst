@@ -89,9 +89,6 @@ const Header = () => {
               />
             </div>
 
-            <a className="btn small ml-20 primary buy-swamp hidden" href="#">Buy </a>
-            {/* <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock" href="#"></a> */}
-
             <ConnectionProvider endpoint={endpoint}>
               <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
