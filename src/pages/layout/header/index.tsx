@@ -89,20 +89,17 @@ const Header = () => {
               />
             </div>
 
-
-            
-
             <a className="btn small ml-20 primary buy-swamp hidden" href="#">Buy </a>
             {/* <a className="btn small ml-10 btn-wallet" id="btn-wallet-unlock" href="#"></a> */}
 
             <ConnectionProvider endpoint={endpoint}>
-                <WalletProvider wallets={wallets} autoConnect>
-                    <WalletModalProvider>
-                        <WalletMultiButton className="btn small ml-20 btn-wallet" />
-                        {/* <WalletDisconnectButton /> */}
-                        { /* Your app's components go here, nested within the context providers. */ }
-                    </WalletModalProvider>
-                </WalletProvider>
+              <WalletProvider wallets={wallets} autoConnect>
+                <WalletModalProvider>
+                  <WalletMultiButton className="btn small ml-20 btn-wallet" />
+                  {/* <WalletDisconnectButton /> */}
+                  { /* Your app's components go here, nested within the context providers. */ }
+                </WalletModalProvider>
+              </WalletProvider>
             </ConnectionProvider>
 
             <div className="balance ml-10 hidden">
@@ -116,7 +113,6 @@ const Header = () => {
           </div>          
         }
 
-
         <div className="hamburger" onClick={()=> {
           if (ismenu) {
             SetIsMenu(false);
@@ -125,7 +121,6 @@ const Header = () => {
             SetIsMenu(true);
             document.querySelector("#mobilemenu")?.classList.add("visible");
           }
-          
         }}>
           <svg viewBox="0 0 18 15">
             <path fill="#3C4E5A" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"></path>

@@ -70,11 +70,11 @@ const Home = () => {
 
         <div className="social">
          
-          <a href="https://twitter.com/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="twitter">
+          <a href="https://twitter.com/daedalyst" target="_blank" rel="noopener noreferrer" aria-label="twitter">
             <img src={TwitterIconSrc} alt="social"/>
           </a>
           
-          <a href="https://discord.gg/daedalyst.finance" target="_blank" rel="noopener noreferrer" aria-label="medium">
+          <a href="https://discord.gg/VXccUbueCh" target="_blank" rel="noopener noreferrer" aria-label="medium">
             <img src={DiscordIconSrc} alt="social"/>
           </a>
         
