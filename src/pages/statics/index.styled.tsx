@@ -168,8 +168,10 @@ export const StaticsContainer = styled.div`
             &.selected {
               color: var(--c-txt);
             }
-            &:nth-child(2) {
-              color: var(--c-txt);
+            &:not(.selected){
+              &:hover {
+                color: var(--c-txt);
+              }
             }
           }
         }
