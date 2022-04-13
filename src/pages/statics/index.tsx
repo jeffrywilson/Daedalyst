@@ -137,15 +137,15 @@ const Statics = () => {
       <div className="farm-stats-container">
         <div className="farm-stats">
           <div className="stat tvl">
-            <div className="ttl">Total Value Locked (TVL)</div>
+            <div className="ttl">Current Price</div>
             <div className="val">$2,854,549</div>
           </div>
           <div className="stat tvl">
-            <div className="ttl">Total Liquidity</div>
+            <div className="ttl">Change In Price (vs 24H Ago)</div>
             <div className="val">$4,898</div>
           </div>
           <div className="stat tvl">
-            <div className="ttl">Trading Volume (24h)</div>
+            <div className="ttl">Prior 24H Volume</div>
             <div className="val">$0</div>
           </div>
         </div>
