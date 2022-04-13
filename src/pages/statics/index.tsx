@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-
-import SwampImg from "../../assets/swamp.svg";
 import SolTokenImg from "../../assets/token/sol.png";
 import AtlasTokenImg from "../../assets/token/atlas.png";
 import StepTokenImg from "../../assets/token/step.png";
-import CopyImg from "../../assets/copy.svg";
-import MetaMaskImg from "../../assets/metamask.svg";
-import WalletIconImg from "../../assets/wallet.svg";
+
 import {
   StaticsContainer,
 } from "./index.styled";

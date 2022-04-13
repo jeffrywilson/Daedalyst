@@ -2,7 +2,6 @@ import React, { useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import LogoImg from "../../../assets/background/logo.png";
 import { setToken } from "../../../redux/actionCreators/setToken";
-import SwampImg from "../../../assets/swamp.svg";
 import { HeaderContainer } from "./index.styled";
 import { useLocation } from 'react-router-dom';
 import Dropdown from 'react-dropdown';

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import ArrowDownImg from "../../assets/arrow-down.svg";
-import SwampSymbolImg from "../../assets/swamp.svg";
 
 export const StaticsContainer = styled.div`
   padding: 190px 0;
