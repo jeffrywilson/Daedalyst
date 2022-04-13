@@ -47,20 +47,29 @@ const Statics = () => {
   const [_times, setTimes] = useState();
   const [_prices, setPrices] = useState<Array<Number>>([]);
   const { name } = useTypedSelector((state) => state.name);
-
-  const tokenOptions = ['SOL', 'USDC', 'ATLAS'];
+  const [_price, setPrice] = useState(0);
+  const [_volume, setVolume] = useState(0);
+  const [_change, setChange] = useState(0);
+  const tokenOptions = ['SOL', 'STEP', 'ATLAS'];
   const defaultOption = tokenOptions[0];
   const dispatch = useDispatch();
 
   useEffect(() => {
     setPrices([]);
+    setPrice(0);
+    setVolume(0);
+    setChange(0);
     const solData = async () => {
+      const avg = await (await fetch(`https://min-api.cryptocompare.com/data/generateAvg?fsym=${name}&tsym=USD&e=Kraken`)).json();
+      setPrice(avg.DISPLAY.PRICE);
+      setChange(avg.DISPLAY.CHANGE24HOUR);
+      setVolume(avg.DISPLAY.VOLUME24HOUR);
+
       const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${name}&tsym=USD&limit=${_day}&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`);
-      
       const json = await response.json();
-      const data = json.Data.Data
-      const times = data.map((obj: { time: any; }) => moment(new Date(obj.time * 1000)).format("MMM D"))
-      const prices = data.map((obj: { high: any; }) => obj.high)
+      const data = json.Data.Data;
+      const times = data.map((obj: { time: any; }) => moment(new Date(obj.time * 1000)).format("MMM D"));
+      const prices = data.map((obj: { high: any; }) => obj.high);
       setTimes(times);
       setPrices(prices);
     }
@@ -122,7 +131,7 @@ const Statics = () => {
     <StaticsContainer >
       <div className="info-strip">
         { name === "SOL" ? <img width="40" height="40" className="swamp-icon" src={SolTokenImg} alt="sol" /> : <></> }
-        { name === "USDC" ? <img width="40" height="40" className="swamp-icon" src={StepTokenImg} alt="step" /> : <></> }
+        { name === "STEP" ? <img width="40" height="40" className="swamp-icon" src={StepTokenImg} alt="step" /> : <></> }
         { name === "ATLAS" ? <img width="40" height="40" className="swamp-icon" src={AtlasTokenImg} alt="altlas" /> : <></> }
         <div className="ttl">{name} </div>
         <div className="price">
@@ -138,15 +147,15 @@ const Statics = () => {
         <div className="farm-stats">
           <div className="stat tvl">
             <div className="ttl">Current Price</div>
-            <div className="val">$2,854,549</div>
+            <div className="val">{`${_price}`}</div>
           </div>
           <div className="stat tvl">
-            <div className="ttl">Change In Price (vs 24H Ago)</div>
-            <div className="val">$4,898</div>
+            <div className="ttl">Change In Price (24H)</div>
+            <div className="val">{`${_change}`}</div>
           </div>
           <div className="stat tvl">
             <div className="ttl">Prior 24H Volume</div>
-            <div className="val">$0</div>
+            <div className="val">{`${_volume}`}</div>
           </div>
         </div>
         <div className="chart-container" >

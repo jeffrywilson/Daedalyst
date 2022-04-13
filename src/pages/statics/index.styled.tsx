@@ -44,27 +44,62 @@ export const StaticsContainer = styled.div`
     height: 378px;
     flex-direction: row;
     margin-top: 50px;
+    @media (max-width: 1240px) {
+      flex-direction: column;
+      height: auto;
+      margin-top: 20px;
+    }
     .farm-stats {
       display: flex;
       min-width: 360px;
       flex-direction: column;
+      @media (max-width: 1240px)
+      {
+        order: 2;
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      @media (max-width: 860px) {
+        flex-direction: column;
+      }
       .stat:not(:first-of-type) {
         margin-top: 20px;
+        @media (max-width: 1240px){ 
+          margin-top: 0;
+        }
+        @media (max-width: 860px){ 
+          margin-top: 20px;
+        }
       }
       .stat {
         position: relative;
         padding: 31px 30px;
         border: var(--c-txt-2) 2px solid;
         border-radius: var(--r-border-3);
+        @media (max-width: 1240px){
+          width: 32%;
+          height: 124px;
+        }
+        @media (max-width: 860px) {
+          width: 100%;
+          text-align: center;
+        }
         .ttl {
           color: var(--c-txt-2);
           font-size: 15px;
+          @media (max-width: 1240px) {
+            font-size: 13px;
+          }
         }
         .val {
           position: relative;
           top: 3px;
           color: var(--c-txt);
           font-size: 24px;
+          @media (max-width: 1240px) {
+            font-size: 18px;
+          }
         }
       }
     }
@@ -76,7 +111,14 @@ export const StaticsContainer = styled.div`
       background-color: var(--c-background-3);
       margin-left: 20px;
       padding: 30px;
-
+      @media (max-width: 1240px)
+      {
+        order: 1;
+        width: 100%;
+        height: 400px;
+        margin-left: 0;
+        padding: 20px;
+      }
       .toolbar {
         display: flex;
         width: 100%;
