@@ -79,19 +79,7 @@ export const HeaderContainer = styled.div`
         display: none;
       }
       
-      .swamp-price {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        img {
-          width: 35px;
-          height: 35px;
-        }
-        .price {
-          text-shadow: var(--t-shadow-1);
-          color: var(--c-primary);
-        }
-      }
+      
       .btn-wallet {
         position: relative;
         padding: 0 30px 0 70px;

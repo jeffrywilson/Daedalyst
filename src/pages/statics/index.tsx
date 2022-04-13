@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import SolTokenImg from "../../assets/token/sol.png";
 import AtlasTokenImg from "../../assets/token/atlas.png";
 import StepTokenImg from "../../assets/token/step.png";
-
+import { setToken } from "../../redux/actionCreators/setToken";
 import {
   StaticsContainer,
 } from "./index.styled";
@@ -22,6 +22,10 @@ import { Line } from 'react-chartjs-2';
 import moment from 'moment';
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { useTypedSelector } from "../../hooks/useTypeSelector";
+import { useDispatch } from "react-redux";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 
 ChartJS.register(
   CategoryScale,
@@ -43,6 +47,10 @@ const Statics = () => {
   const [_times, setTimes] = useState();
   const [_prices, setPrices] = useState<Array<Number>>([]);
   const { name } = useTypedSelector((state) => state.name);
+
+  const tokenOptions = ['SOL', 'USDC', 'ATLAS'];
+  const defaultOption = tokenOptions[0];
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setPrices([]);
@@ -113,14 +121,17 @@ const Statics = () => {
   return (
     <StaticsContainer >
       <div className="info-strip">
-        
         { name === "SOL" ? <img width="40" height="40" className="swamp-icon" src={SolTokenImg} alt="sol" /> : <></> }
         { name === "USDC" ? <img width="40" height="40" className="swamp-icon" src={StepTokenImg} alt="step" /> : <></> }
         { name === "ATLAS" ? <img width="40" height="40" className="swamp-icon" src={AtlasTokenImg} alt="altlas" /> : <></> }
         <div className="ttl">{name} </div>
-        <div className="price">$0.01</div>
-
-        
+        <div className="price">
+          <Dropdown 
+            options={tokenOptions} value={defaultOption} onChange={(selected)=>{
+              dispatch(setToken(selected.value));
+            }} placeholder="Select an option"
+          />
+        </div>
       </div>
 
       <div className="farm-stats-container">

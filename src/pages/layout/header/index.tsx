@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import LogoImg from "../../../assets/background/logo.png";
-import { setToken } from "../../../redux/actionCreators/setToken";
 import { HeaderContainer } from "./index.styled";
 import { useLocation } from 'react-router-dom';
 import Dropdown from 'react-dropdown';
@@ -32,9 +31,6 @@ require('@solana/wallet-adapter-react-ui/styles.css');
 const Header = () => {
   const [ismenu, SetIsMenu] = useState<boolean>(false);
   const location = useLocation();
-  const options = ['SOL', 'USDC', 'ATLAS'];
-  const defaultOption = options[0];
-  const dispatch = useDispatch();
 
   // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
   const network = WalletAdapterNetwork.Devnet;
@@ -77,16 +73,6 @@ const Header = () => {
         {
           location.pathname === "/" ? <></> :
           <div className="wallet">
-            <div className="swamp-price">
-              {/* <img src={SwampImg} alt="swamp" /> */}
-              {/* <div className="txt ml-10 price">$0.01</div> */}
-
-              <Dropdown 
-                options={options} value={defaultOption} onChange={(selected)=>{
-                  dispatch(setToken(selected.value));
-                }} placeholder="Select an option"
-              />
-            </div>
 
             <ConnectionProvider endpoint={endpoint}>
               <WalletProvider wallets={wallets} autoConnect>
