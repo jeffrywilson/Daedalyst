@@ -145,6 +145,11 @@ export const StaticsContainer = styled.div`
             z-index: 1;
             transition: all .2s ease;
           }
+          &.index-0 {
+            &::before {
+              transform: translateX(0);
+            }
+          }
           &.index-1 {
             color: var(--c-txt);
           }

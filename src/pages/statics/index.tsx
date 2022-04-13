@@ -41,6 +41,7 @@ ChartJS.register(
 
 const Statics = () => {
   const [isdropdown, SetIsDropDown] = useState<boolean>(false);
+  const [isTvl, setIsTvl] = useState<boolean>(false);
   const [dataVal, SetDataVal] = useState("Week");
   
   const [_day, setDay] = useState(7);
@@ -77,7 +78,7 @@ const Statics = () => {
     solData()
       // make suer to catch any error
       .catch(console.error);
-  }, [_day, name]);
+  }, [_day, name, isTvl]);
   
   
   const options = {
@@ -160,9 +161,13 @@ const Statics = () => {
         </div>
         <div className="chart-container" >
           <div className="toolbar">
-            <div className="options index-1">
-              <div className="option price" data-value="price" data-index="0">Price</div>
-              <div className="option tvl selected" data-value="tvl" data-index="1">TVL</div>
+            <div className={isTvl === false? "options index-0" : "options index-1"}>
+              <div className="option price" data-value="price" data-index="0" onClick={()=>{
+                setIsTvl(false);
+              }}>Price</div>
+              <div className="option tvl " data-value="tvl" data-index="1" onClick={()=>{
+                setIsTvl(true);
+              }}>TVL</div>
             </div>
             <div 
               ref={ref}
