@@ -104,7 +104,7 @@ export const StaticsContainer = styled.div`
         }
 
         .options {
-          --option-width: 60px;
+          --option-width: 50px;
           position: relative;
           display: flex;
           padding: 4px;
