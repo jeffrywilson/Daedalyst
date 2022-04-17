@@ -92,6 +92,7 @@ export const StaticsContainer = styled.div`
             font-size: 13px;
           }
         }
+
         .val {
           position: relative;
           top: 3px;
@@ -99,6 +100,57 @@ export const StaticsContainer = styled.div`
           font-size: 24px;
           @media (max-width: 1240px) {
             font-size: 18px;
+          }
+        }
+
+        .options {
+          --option-width: 60px;
+          position: relative;
+          display: flex;
+          padding: 4px;
+          flex-direction: row;
+          border-radius: 15px;
+          background-color: var(--c-background-4);
+          &::before {
+            content: '';
+            position: absolute;
+            background-color: var(--c-background-2);
+            width: var(--option-width);
+            height: calc(100% - 8px);
+            left: 4px;
+            top: 4px;
+            border-radius: 12px;
+            z-index: 1;
+            transition: all .2s ease;
+          }
+          &.index-0 {
+            &::before {
+              transform: translateX(0);
+            }
+          }
+          &.index-1 {
+            color: var(--c-txt);
+          }
+          &.index-1::before {
+            transform: translateX(var(--option-width));
+          }
+          .option {
+            width: var(--option-width);
+            padding: 0px 16px;
+            font-size: 15px;
+            color: var(--c-txt-2);
+            cursor: pointer;
+            transition: all .2s ease;
+            z-index: 2;
+            text-align: center;
+            &.selected {
+              color: var(--c-txt);
+            }
+            &:not(.selected){
+              &:hover {
+                color: var(--c-txt);
+              }
+            }
           }
         }
       }

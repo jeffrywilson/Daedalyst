@@ -51,22 +51,28 @@ const Statics = () => {
   const [_price, setPrice] = useState(0);
   const [_volume, setVolume] = useState(0);
   const [_change, setChange] = useState(0);
+  const [_volumeTo, setVolumeTo] = useState(0);
   const tokenOptions = ['SOL', 'STEP', 'ATLAS'];
   const defaultOption = tokenOptions[0];
   const dispatch = useDispatch();
+  const API_KEY = "398574298c78948a9212cd6b66c1408111cdfcce6bcbb31020a64a6374dd89da";
 
   useEffect(() => {
     setPrices([]);
     setPrice(0);
     setVolume(0);
     setChange(0);
+    setVolumeTo(0);
     const solData = async () => {
       const avg = await (await fetch(`https://min-api.cryptocompare.com/data/generateAvg?fsym=${name}&tsym=USD&e=Kraken`)).json();
+      
       setPrice(avg.DISPLAY.PRICE);
       setChange(avg.DISPLAY.CHANGE24HOUR);
       setVolume(avg.DISPLAY.VOLUME24HOUR);
+      setVolumeTo(avg.DISPLAY.VOLUME24HOURTO);
 
-      const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${name}&tsym=USD&limit=${_day}&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`);
+      const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${name}&tsym=USD&limit=${_day}&api_key=${API_KEY}`);
+      console.log("log", response);
       const json = await response.json();
       const data = json.Data.Data;
       const times = data.map((obj: { time: any; }) => moment(new Date(obj.time * 1000)).format("MMM D"));
@@ -79,7 +85,6 @@ const Statics = () => {
       // make suer to catch any error
       .catch(console.error);
   }, [_day, name, isTvl]);
-  
   
   const options = {
     responsive: true,
@@ -147,28 +152,46 @@ const Statics = () => {
       <div className="farm-stats-container">
         <div className="farm-stats">
           <div className="stat tvl">
-            <div className="ttl">Current Price</div>
+            <div className="ttl">{`Current Price`}</div>
             <div className="val">{`${_price}`}</div>
           </div>
           <div className="stat tvl">
-            <div className="ttl">Change In Price (24H)</div>
+            <div className="ttl">{`Change In Price (24H)`}</div>
             <div className="val">{`${_change}`}</div>
           </div>
           <div className="stat tvl">
-            <div className="ttl">Prior 24H Volume</div>
-            <div className="val">{`${_volume}`}</div>
+            <div className="ttl">
+              {`Prior 24H Volume`}
+              
+            </div>
+            <div className="val">
+              <div style={{display: "flex"}}>
+                { isTvl === false? _volume : _volumeTo }
+
+                <div style={{position:"absolute", right: "0"}}>
+                  <div className={isTvl === false? "options index-0" : "options index-1"}>
+                    <div className={isTvl === false? "option price selected" : "option price"} data-value="price" data-index="0" onClick={()=>{
+                      setIsTvl(false);
+                    }}>Vol</div>
+                    <div className={isTvl === false? "option tvl " : "option tvl selected"} data-value="tvl" data-index="1" onClick={()=>{
+                      setIsTvl(true);
+                    }}>Price</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="chart-container" >
           <div className="toolbar">
-            <div className={isTvl === false? "options index-0" : "options index-1"}>
+            {/* <div className={isTvl === false? "options index-0" : "options index-1"}>
               <div className={isTvl === false? "option price selected" : "option price"} data-value="price" data-index="0" onClick={()=>{
                 setIsTvl(false);
               }}>Price</div>
               <div className={isTvl === false? "option tvl " : "option tvl selected"} data-value="tvl" data-index="1" onClick={()=>{
                 setIsTvl(true);
               }}>TVL</div>
-            </div>
+            </div> */}
             <div 
               ref={ref}
               className={ isdropdown? "dropdown-wrapper time-dropdown opened" : "dropdown-wrapper time-dropdown"}
