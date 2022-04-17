@@ -172,10 +172,10 @@ const Statics = () => {
                   <div className={isTvl === false? "options index-0" : "options index-1"}>
                     <div className={isTvl === false? "option price selected" : "option price"} data-value="price" data-index="0" onClick={()=>{
                       setIsTvl(false);
-                    }}>Vol</div>
+                    }}>{`Vol`}</div>
                     <div className={isTvl === false? "option tvl " : "option tvl selected"} data-value="tvl" data-index="1" onClick={()=>{
                       setIsTvl(true);
-                    }}>Price</div>
+                    }}>{`USD`}</div>
                   </div>
                 </div>
               </div>

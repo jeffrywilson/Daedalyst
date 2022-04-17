@@ -136,7 +136,6 @@ export const StaticsContainer = styled.div`
           }
           .option {
             width: var(--option-width);
-            padding: 0px 16px;
             font-size: 15px;
             color: var(--c-txt-2);
             cursor: pointer;
