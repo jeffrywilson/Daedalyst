@@ -135,7 +135,7 @@ const Statics = () => {
         ticks: {
           callback: function (value: any, index: any, values: any) {
             let temp = "";
-            if (name === "ATLAS") {
+            if (name === "ATLAS" && _day === 7) {
               temp = parseFloat(value).toFixed(4);
             } else {
               temp = value;
