@@ -91,8 +91,7 @@ const Statics = () => {
         const json = await stepRes.json();
         const data = json.prices;
         const times = data.map((obj: any[])=>moment(new Date(obj[0])).format("MMM D"));
-        const prices = data.map((obj: any[])=> parseFloat(obj[1]).toFixed(4));
-        console.log("prices", prices);
+        const prices = data.map((obj: any[])=> obj[1]);
         setTimes(times);
         setPrices(prices);
       }
