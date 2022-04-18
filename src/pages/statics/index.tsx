@@ -91,7 +91,8 @@ const Statics = () => {
         const json = await stepRes.json();
         const data = json.prices;
         const times = data.map((obj: any[])=>moment(new Date(obj[0])).format("MMM D"));
-        const prices = data.map((obj: any[])=>obj[1])
+        const prices = data.map((obj: any[])=> parseFloat(obj[1]).toFixed(4));
+        console.log("prices", prices);
         setTimes(times);
         setPrices(prices);
       }
@@ -134,7 +135,8 @@ const Statics = () => {
       y: {
         ticks: {
           callback: function (value: any, index: any, values: any) {
-            return `$${value}`;
+            let temp = parseFloat(value).toFixed(4);
+            return `$${temp}`;
           },
         },
         grid: {
