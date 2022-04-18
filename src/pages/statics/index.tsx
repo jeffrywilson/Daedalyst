@@ -71,7 +71,7 @@ const Statics = () => {
       setVolume(avg.DISPLAY.VOLUME24HOUR);
       setVolumeTo(avg.DISPLAY.VOLUME24HOURTO);
       if (name === "STEP") {
-        const stepRes = await fetch(`https://api.coingecko.com/api/v3/coins/step/market_chart?vs_currency=usd&days=${_day}&interval=daily`);
+        const stepRes = await fetch(`https://api.coingecko.com/api/v3/coins/step-finance/market_chart?vs_currency=usd&days=${_day}&interval=daily`);
         const json = await stepRes.json();
         const data = json.prices;
         const times = data.map((obj: any[])=>moment(new Date(obj[0])).format("MMM D"));
