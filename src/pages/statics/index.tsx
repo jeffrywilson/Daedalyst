@@ -135,7 +135,13 @@ const Statics = () => {
       y: {
         ticks: {
           callback: function (value: any, index: any, values: any) {
-            let temp = parseFloat(value).toFixed(4);
+            let temp = "";
+            if (name === "ATLAS") {
+              temp = parseFloat(value).toFixed(4);
+            } else {
+              temp = value;
+            }
+            
             return `$${temp}`;
           },
         },
