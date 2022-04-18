@@ -70,15 +70,23 @@ const Statics = () => {
       setChange(avg.DISPLAY.CHANGE24HOUR);
       setVolume(avg.DISPLAY.VOLUME24HOUR);
       setVolumeTo(avg.DISPLAY.VOLUME24HOURTO);
-
-      const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${name}&tsym=USD&limit=${_day}&api_key=${API_KEY}`);
-      console.log("log", response);
-      const json = await response.json();
-      const data = json.Data.Data;
-      const times = data.map((obj: { time: any; }) => moment(new Date(obj.time * 1000)).format("MMM D"));
-      const prices = data.map((obj: { high: any; }) => obj.high);
-      setTimes(times);
-      setPrices(prices);
+      if (name === "STEP") {
+        const stepRes = await fetch(`https://api.coingecko.com/api/v3/coins/step/market_chart?vs_currency=usd&days=${_day}&interval=daily`);
+        const json = await stepRes.json();
+        const data = json.prices;
+        const times = data.map((obj: any[])=>moment(new Date(obj[0])).format("MMM D"));
+        const prices = data.map((obj: any[])=>obj[1])
+        setTimes(times);
+        setPrices(prices);
+      } else {
+        const response = await fetch(`https://min-api.cryptocompare.com/data/v2/histoday?fsym=${name}&tsym=USD&limit=${_day}&api_key=${API_KEY}`);
+        const json = await response.json();
+        const data = json.Data.Data;
+        const times = data.map((obj: { time: any; }) => moment(new Date(obj.time * 1000)).format("MMM D"));
+        const prices = data.map((obj: { high: any; }) => obj.high);
+        setTimes(times);
+        setPrices(prices);
+      }
     }
     // call the function
     solData()
